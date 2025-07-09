@@ -32,7 +32,12 @@
       btn.addEventListener("click", () => {
         window.location.href = `https://qr-gen-oeeg.onrender.com/download/${filename}`;
       });
-
+      else {
+        document.getElementById("qr-preview").innerHTML = `
+        <h1>No QR Code Found</h1>
+        <p>Please generate a QR code first.</p>
+        `;
+      }
       }
     </script>
   </body>
