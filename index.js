@@ -4,7 +4,7 @@ $(document).ready(function() {
         var url = $('#UrlInput').val();
         console.log('URL entered:', url);
         $.ajax({
-        url: 'https://qr-gen-oeeg.onrender.com',
+        url: 'https://qr-gen-nkjl.onrender.com',
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({url}),
