@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="desktop-2">
+    <div id="qr-preview">
+      <h1>YOUR QR</h1>
+      <img id="qrImage" src="qr.png" alt="QR Code" style="display: none" />
+      <br />
+      <button id="downloadBtn" style="display: none">Download</button>
+    </div>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const file = params.get("file");
+
+      if (file) {
+      const fileUrl = `http://localhost:8001${file}`;
+      const img = document.getElementById("qrImage");
+      const btn = document.getElementById("downloadBtn");
+
+      img.src = fileUrl;
+      img.style.display = "block";
+      btn.style.display = "inline-block";
+
+      const filename = file.split("/").pop();
+
+      btn.addEventListener("click", () => {
+        window.location.href = `http://localhost:8001/download/${filename}`;
+      });
+
+      }
+    </script>
+  </body>
+</html>
